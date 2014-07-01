@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>UM-City test</title>
+
+    <!-- UM events-->
+    <script src="http://um-events.media.mit.edu:10002/socket.io/socket.io.js"></script>
+    <script src="http://um-events.media.mit.edu:10002/client.js"></script>
+
+    <!-- Custom Style Sheets -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="um-city.js"></script> -->
+
+    <script>
+        var collection1 = ["the Wire", "Sex and the City", "The New York Times"];
+        var collection2 = ["Gif of otter", "This is the End"];
+
+        window.onload = function(){
+
+            //set the group name
+            UMevents.clientname("umcity");
+
+            getCollection = function(collectionName){
+                if (collectionName === "collection1") {
+                    return collection1;
+                }
+                else if (collectionName === "collection2") {
+                    return collection2;
+                }
+            };
+
+            changeCollection = function(collection){
+                console.log ("changing collection...");
+                fillCollection(collection);
+            };
+
+            fillCollection = function(collection) {
+                console.log(collection);
+                document.getElementById('collectionContainer').innerHTML = collection.toString();
+            };
+
+            UMevents.on('changeCollection', function(e) {
+                console.log (e.type);
+                console.log (e.name);
+                console.log (e.data);
+                
+                changeCollection(getCollection(e.data));
+            });
+
+            fillCollection(collection1);
+
+        };
+
+
+    
+    </script>
+
+</head>
+<body>
+    <h1>UM City Test</h1>
+    <div id="collectionContainer"></div>
+
+
+</body>
+</html>
