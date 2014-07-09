@@ -1,4 +1,128 @@
-#collectionContainer {
-	width = 100%;
-	height: 500px;
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3 {
+	font-weight: 200;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#topNav {
+	padding: 15px 30px;
+	margin: 30px auto;
+	/*border: 4px solid black;*/
+	width: 50%;
+	text-align: center;
+}
+
+#topNav h1 {
+	font-size: 64px;
+}
+
+#hereNow {
+	height: 50px;
+	margin-top: 5px;
+}
+
+#hereNow h2 {
+	display: inline;
+	position: relative;
+	top: -24px;
+}
+
+#topNav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	display: inline;
+	position: relative;
+	top: -8px;
+}
+
+#topNav ul li { 
+	display: inline; 
+	width: 56px;
+	padding: 0 3px;
+}
+
+.icon {
+	width: 50px;
+	height: 50px;
+	border-radius: 30px;
+}
+
+.matrix {
+	height: 102%;
+	margin: 15px;
+}
+
+@keyframes start {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+
+@-webkit-keyframes start {
+	from {
+		-webkit-transform: scale(0);
+	}
+	to {
+		-webkit-transform: scale(1);
+	}
+}
+
+.matrix .cell[data-state="init"] {
+	display: none;
+}
+
+.matrix .cell[data-state="start"]  {
+	display: block;
+	animation: start 0.5s;
+	-webkit-animation: start 0.5s;
+}
+
+.matrix .cell[data-state="move"]  {
+	transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s;
+	-webkit-transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s;
+}
+
+.cell {
+	background-color: black;
+	position: relative;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.cellInfo {
+	margin: 15px;
+	position: absolute; 
+	bottom: 3px; 
+	/*padding: 5px;*/
+	/*border: 3px solid;*/
+}
+
+.cellInfo h1, .cellInfo h2 {
+	padding: 0px 3px;
+}
+
+.cellInfo h1 {
+	margin-bottom: 3px;
+}
+
+.cellInfo h2 {
+	display: inline;
+	margin-top: 2px;
 }
