@@ -107,7 +107,7 @@ window.onload = function() {
     fillMatrix(getCollection(collection), getPeople(people));
   };
 
-  UMevents.on('changeCollection', function(e) {
+  UMevents.on('changeCollection-rockstar', function(e) {
       console.log (e.type);
       console.log (e.name);
       console.log (e.data);
@@ -121,40 +121,51 @@ window.onload = function() {
 
   gestureReset_rockstar = function() {
     var gestureData = "News Room/blonde_cop,black_stache"
-    UMevents.emit('changeCollection', gestureData);
+    UMevents.emit('changeCollection-rockstar', gestureData);
   };
 
   gestureReset_lady = function() {
     var gestureData = "SciFi/black_hat,andy,brunette"
-    UMevents.emit('changeCollection', gestureData);
+    UMevents.emit('changeCollection-lady', gestureData);
   };
 
   gesture1_rockstar = function() {
     var gestureData = "News Room/blonde_cop,black_stache,devo"
-    UMevents.emit('changeCollection', gestureData);
+    UMevents.emit('changeCollection-rockstar', gestureData);
   };
 
   gesture2_rockstar = function() {
-    var gestureData = "News Room/blonde_cop,black_stache,brunette"
-    UMevents.emit('changeCollection', gestureData);
+    var gestureData = "News Room/blonde_cop,black_stache,devo,brunette"
+    UMevents.emit('changeCollection-rockstar', gestureData);
   };
 
   gesture2_lady = function() {
     var gestureData = "News Room/blonde_cop,black_stache,brunette"
-    UMevents.emit('changeCollection', gestureData);
+    UMevents.emit('changeCollection-lady', gestureData);
   };
 
   gesture3_rockstar = function() {
     var gestureData = "Vivian's House/blonde_cop,brunette"
-    UMevents.emit('changeCollection', gestureData);
+    UMevents.emit('changeCollection-rockstar', gestureData);
   };
 
   gesture3_lady = function() {
     var gestureData = "Vivian's House/blonde_cop,brunette"
-    UMevents.emit('changeCollection', gestureData);
+    UMevents.emit('changeCollection-lady', gestureData);
   };
 
-  changeCollection("Vivian's House", ["andy", "knight", "blonde_cop"]);
+  changeCollection("News Room", ["blonde_cop", "black_stache"]);
+  // //gesture 1-- add Devo
+  // setTimeout( function(){changeCollection("News Room", ["blonde_cop", "black_stache", "devo"])}, 6000 );
+  // //gesture 2-- add Devo
+  // setTimeout( function(){changeCollection("News Room", ["blonde_cop", "black_stache", "devo", "brunette"])}, 6000 );
+  // //gesture 2-- add Devo
+  // setTimeout( function(){changeCollection("Vivian's House", ["blonde_cop", "brunette"])}, 6000 );
 
+  // changeCollection("SciFi", ["black_hat", "andy", "brunette"]);
+  // //gesture 2-- add Devo
+  // setTimeout( function(){changeCollection("News Room", ["blonde_cop", "black_stache", "devo", "brunette"])}, 6000 );
+  // //gesture 2-- add Devo
+  // setTimeout( function(){changeCollection("Vivian's House", ["blonde_cop", "brunette"])}, 6000 );
 
 }
